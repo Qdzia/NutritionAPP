@@ -55,7 +55,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\PlannerView.xaml.cs">
+      <DependentUpon>PlannerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NutritionLabel.cs" />
+    <Compile Include="Models\Recepie.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\PlannerViewModel.cs" />
+    <Page Include="Controls\PlannerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

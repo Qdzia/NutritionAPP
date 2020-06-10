@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:NutritionApp.ViewModels"
+        xmlns:controls="clr-namespace:NutritionApp.Controls"
         xmlns:local="clr-namespace:NutritionApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -27,6 +28,8 @@
             <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding BindingTest}">Test</TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding BindingTest}"/>
+        <controls:PlannerView Grid.Column="2" Grid.Row="1" RecepieList="{Binding Planner.SelectedRecepie}"/>
+
     </Grid>
 </Window>

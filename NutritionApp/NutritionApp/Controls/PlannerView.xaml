@@ -5,7 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NutritionApp.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="650" Background="White" x:Name="Root">
+             d:DesignHeight="450" d:DesignWidth="650" Background="White" 
+             DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentControl}}, Path=DataContext}"
+             x:Name="Root">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5"/>

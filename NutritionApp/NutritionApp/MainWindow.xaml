@@ -3,17 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:vm="clr-namespace:NutritionApp.ViewModels"
-        xmlns:controls="clr-namespace:NutritionApp.Controls"
         xmlns:local="clr-namespace:NutritionApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-    <Window.DataContext>
-        <vm:MainViewModel/>
-    </Window.DataContext>
-    
-    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5"/>
@@ -28,8 +21,27 @@
             <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding BindingTest}"/>
-        <controls:PlannerView Grid.Column="2" Grid.Row="1" RecepieList="{Binding Planner.SelectedRecepie}"/>
+        <DockPanel Grid.Row="1" Grid.Column="1">
+            <StackPanel Orientation="Vertical" >
+                <Menu DockPanel.Dock="Top"  ItemsSource="{Binding MainMenu}">
+
+                    <Menu.ItemContainerStyle>
+                        <Style TargetType="MenuItem">
+
+                            <Setter Property="Width" Value="500"/>
+                            <Setter Property="Padding" Value="5"/>
+                            <Setter Property="MenuItem.Header" Value="{Binding Path=Header}" />
+                            <Setter Property="MenuItem.ItemsSource" Value="{Binding Path=Children}" />
+                            <Setter Property="MenuItem.Command" Value="{Binding Path=Command}" />
+                            <Setter Property="MenuItem.CommandParameter" Value="{Binding Path=DataContext, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                           
+                        </Style>
+                    </Menu.ItemContainerStyle>
+                </Menu>
+            </StackPanel>
+        </DockPanel>
+
+        <ContentControl Grid.Column="2" Grid.Row="1" Content="{Binding SelectedViewModel}"/>
 
     </Grid>
 </Window>

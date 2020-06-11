@@ -55,13 +55,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\GroceryListView.xaml.cs">
+      <DependentUpon>GroceryListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PlannerView.xaml.cs">
       <DependentUpon>PlannerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\NutritionLabel.cs" />
     <Compile Include="Models\Recepie.cs" />
+    <Compile Include="ViewModels\GroceryListViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\MenuItemViewModel.cs" />
+    <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\PlannerViewModel.cs" />
+    <Page Include="Controls\GroceryListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\PlannerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

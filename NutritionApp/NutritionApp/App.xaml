@@ -2,8 +2,15 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:NutritionApp"
+             xmlns:vm="clr-namespace:NutritionApp.ViewModels"
+             xmlns:controls="clr-namespace:NutritionApp.Controls"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DataTemplate DataType="{x:Type vm:GroceryListViewModel}">
+            <controls:GroceryListView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:PlannerViewModel}">
+            <controls:PlannerView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

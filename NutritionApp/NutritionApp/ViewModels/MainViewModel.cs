@@ -19,13 +19,10 @@ namespace NutritionApp.ViewModels
         {
             _menuViewModel = new MenuViewModel();
 
-            UpdateViewCommand = new RelayCommand<object>(UpdateView, CanUpdateView);
             _selectedViewModel = new PlannerViewModel();
         }
         public PlannerViewModel Planner { get; set; }
 
-
-        public RelayCommand<object> UpdateViewCommand { get; set; }
 
         private BaseVM _selectedViewModel;
 
@@ -35,22 +32,7 @@ namespace NutritionApp.ViewModels
             set { SetProperty(ref _selectedViewModel, value); }
         }
 
-        public void UpdateView(object param)
-        {
-
-            if (param.ToString() == "StartMenu")
-            {
-                SelectedViewModel = new PlannerViewModel();
-            }
-            else if (param.ToString() == "Application")
-            {
-                SelectedViewModel = new PlannerViewModel();
-            }
-        }
-        public bool CanUpdateView(object param)
-        {
-            return true;
-        }
+        
 
     }
 }

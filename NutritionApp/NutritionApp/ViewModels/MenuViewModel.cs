@@ -1,4 +1,5 @@
 ﻿using NutritionApp.Base;
+using NutritionApp.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +20,9 @@ namespace NutritionApp.ViewModels
         {
             _mainMenu = new List<MenuItemViewModel>();
 
-            _mainMenu.Add(new MenuItemViewModel("Planner"));
+            _mainMenu.Add(new MenuItemViewModel("Planner",MenuCommands.GotoPlannerCommand));
             _mainMenu.Add(new MenuItemViewModel("Calories"));
-            _mainMenu.Add(new MenuItemViewModel("Grocery List"));
+            _mainMenu.Add(new MenuItemViewModel("Grocery List",MenuCommands.GotoGroceryListCommand));
             _mainMenu.Add(new MenuItemViewModel("Add Recepie"));
         }
     }

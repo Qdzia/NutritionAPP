@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NutritionApp.Controls
+namespace NutritionApp.Views
 {
     /// <summary>
     /// Interaction logic for GroceryListView.xaml

@@ -56,12 +56,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\MenuCommands.cs" />
-    <Compile Include="Controls\GroceryListView.xaml.cs">
-      <DependentUpon>GroceryListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\PlannerView.xaml.cs">
-      <DependentUpon>PlannerView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Models\NutritionLabel.cs" />
     <Compile Include="Models\Recepie.cs" />
     <Compile Include="ViewModels\GroceryListViewModel.cs" />
@@ -69,14 +63,12 @@
     <Compile Include="ViewModels\MenuItemViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\PlannerViewModel.cs" />
-    <Page Include="Controls\GroceryListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\PlannerView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="Views\GroceryListView.xaml.cs">
+      <DependentUpon>GroceryListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlannerView.xaml.cs">
+      <DependentUpon>PlannerView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -92,6 +84,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\GroceryListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlannerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -118,6 +118,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

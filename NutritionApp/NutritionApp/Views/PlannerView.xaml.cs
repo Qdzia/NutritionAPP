@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NutritionApp.Controls
+namespace NutritionApp.Views
 {
     /// <summary>
     /// Interaction logic for PlannerView.xaml
@@ -35,7 +35,7 @@ namespace NutritionApp.Controls
         public static readonly DependencyProperty RecepieListProperty =
             DependencyProperty.Register("RecepieList", typeof(List<Recepie>), typeof(PlannerView), new PropertyMetadata(null));
 
-        public int SelectedDay 
+        public int SelectedDay
         {
             get { return (int)GetValue(SelectedDayProperty); }
             set { SetValue(SelectedDayProperty, value); }
@@ -73,6 +73,5 @@ namespace NutritionApp.Controls
         private void Breakfast(object sender, RoutedEventArgs e) => SelectedMeal = 0;
         private void Dinner(object sender, RoutedEventArgs e) => SelectedMeal = 1;
         private void Supper(object sender, RoutedEventArgs e) => SelectedMeal = 2;
-
     }
 }

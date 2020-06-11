@@ -10,6 +10,7 @@ namespace NutritionApp.ViewModels
 {
     class PlannerViewModel : BaseVM
     {
+        public string TestString { get { return "Test string"; } }
         public PlannerViewModel()
         {
             PlanForWeek = new Recepie[7][];

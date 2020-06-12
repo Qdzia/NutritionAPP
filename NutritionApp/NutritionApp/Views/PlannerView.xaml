@@ -34,13 +34,13 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <Button Grid.Row="0" Margin="5" Click="Monday" >Monday</Button>
-            <Button Grid.Row="1" Margin="5" Click="Tuesday" >Tuesday</Button>
-            <Button Grid.Row="2" Margin="5" Click="Wednesday">Wednesday</Button>
-            <Button Grid.Row="3" Margin="5" Click="Thursday">Thursday</Button>
-            <Button Grid.Row="4" Margin="5" Click="Friday" >Friday</Button>
-            <Button Grid.Row="5" Margin="5" Click="Saturday">Saturday</Button>
-            <Button Grid.Row="6" Margin="5" Click="Sunday">Sunday</Button>
+            <Button Grid.Row="0" Margin="5" Command="{Binding ChangeDayCommand}" CommandParameter="0" >Monday</Button>
+            <Button Grid.Row="1" Margin="5" Command="{Binding ChangeDayCommand}" CommandParameter="1" >Tuesday</Button>
+            <Button Grid.Row="2" Margin="5" Command="{Binding ChangeDayCommand}" CommandParameter="2" >Wednesday</Button>
+            <Button Grid.Row="3" Margin="5" Command="{Binding ChangeDayCommand}" CommandParameter="3" >Thursday</Button>
+            <Button Grid.Row="4" Margin="5" Command="{Binding ChangeDayCommand}" CommandParameter="4" >Friday</Button>
+            <Button Grid.Row="5" Margin="5" Command="{Binding ChangeDayCommand}" CommandParameter="5" >Saturday</Button>
+            <Button Grid.Row="6" Margin="5" Command="{Binding ChangeDayCommand}" CommandParameter="6" >Sunday</Button>
 
         </Grid>
 

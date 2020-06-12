@@ -28,7 +28,7 @@ namespace NutritionApp.Models
 
         public override string ToString()
         {
-            return "Nutrition Label not implemented";
+            return $"Calories {calories}kcal Fat {fat}g Carbs {carbs}g Fiber {fiber}g Sugar {sugar}g Protein {protein}g";
         }
     }
 }

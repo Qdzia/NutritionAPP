@@ -21,5 +21,9 @@ namespace NutritionApp.Models
             this.label = label;
         }
 
+        public override string ToString()
+        {
+            return recepieName;
+        }
     }
 }

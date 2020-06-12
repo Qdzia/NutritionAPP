@@ -70,7 +70,7 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
 
-                <ListBox Grid.Column="0" Margin="5"/>
+                <ListBox Grid.Column="0" Margin="5" ItemsSource="{Binding RecepieList}" SelectedItem="{Binding SelectedRecepie}"/> 
 
                 <!--Recepie Panel-->
                 <Grid Grid.Row="0" Grid.Column="1" >
@@ -81,10 +81,10 @@
                         <RowDefinition Height="3*"/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock FontSize="30" Margin="5" Text="{Binding ElementName=Root, Path=SelectedRecepie.recepieName}"/>
-                    <TextBlock Grid.Row="1" Margin="5" Text="{Binding ElementName=Root, Path=SelectedRecepie.instruction}"/>
-                    <ListBox Grid.Row="2" Margin="5" ItemsSource="{Binding ElementName=Root, Path=SelectedRecepie.ingredients}" SelectedItem="{Binding ElementName=Root, Path=SelectedRecepie}"/>
-                    <TextBlock Grid.Row="3" Margin="5" Text="{Binding TestString}"/>
+                    <TextBlock FontSize="30" Margin="5" Text="{Binding RecepieName}"/>
+                    <TextBlock Grid.Row="1" Margin="5" Text="{Binding RecepieInstruction}"/>
+                    <ListBox Grid.Row="2" Margin="5" ItemsSource="{Binding RecepieIngredients}"/>
+                    <TextBlock Grid.Row="3" Margin="5" Text="{Binding RecepieLabel}"/>
 
                 </Grid>
             </Grid>

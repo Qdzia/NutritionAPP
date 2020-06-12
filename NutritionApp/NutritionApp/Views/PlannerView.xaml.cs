@@ -1,4 +1,5 @@
 ﻿using NutritionApp.Models;
+using NutritionApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace NutritionApp.Views
         public PlannerView()
         {
             InitializeComponent();
+            this.DataContext = new PlannerViewModel();
         }
 
         public List<Recepie> RecepieList

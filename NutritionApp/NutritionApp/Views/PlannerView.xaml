@@ -58,9 +58,9 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" Margin="5" Click="Breakfast">Breakfast</Button>
-                <Button Grid.Column="1" Margin="5" Click="Dinner">Dinner</Button>
-                <Button Grid.Column="2" Margin="5" Click="Supper">Supper</Button>
+                <Button Grid.Column="0" Margin="5"  Content="{Binding Breakfast}" Command="{Binding ChangeMealCommand}" CommandParameter="Breakfast"/>
+                <Button Grid.Column="1" Margin="5" Content="{Binding Dinner}" Command="{Binding ChangeMealCommand}" CommandParameter="Dinner"/>
+                <Button Grid.Column="2" Margin="5" Content="{Binding Supper}" Command="{Binding ChangeMealCommand}" CommandParameter="Supper"/>
             </Grid>
 
             <!--Recepie List Panel-->

@@ -11,23 +11,43 @@ namespace NutritionApp.ViewModels
 {
     class GroceryListViewModel : BaseVM
     {
+        private Ingredient _selectedIngredient;
+        private List<string> inList;
+        private List<Ingredient> _groceryList;
+
         public Recepie[][] PlanForWeek;
+        public RelayCommand DeleteIngredientCommand { get; set; }
 
-        List<string> inList;
-
-        List<Ingredient> _groceryList;
         public List<Ingredient> GroceryList
         {
             get { return _groceryList; }
             set { SetProperty(ref _groceryList, value); }
         }
-
+        
+        public Ingredient SelectedIngredient
+        {
+            get { return _selectedIngredient; }
+            set { SetProperty(ref _selectedIngredient, value); }
+        }
+        
         public GroceryListViewModel()
         {
             _groceryList = new List<Ingredient>();
             inList = new List<string>();
             PlanForWeek = RecepieBase.Instance.PlanForWeek;
             SumItUp();
+            DeleteIngredientCommand = new RelayCommand(DeleteIngredient);
+        }
+
+        public void DeleteIngredient()
+        {
+            List<Ingredient> list = new List<Ingredient>();
+            GroceryList.Remove(SelectedIngredient);
+            foreach (var ing in GroceryList)
+            {
+                list.Add(ing);
+            }
+            GroceryList = list;
         }
 
         public void SumItUp()

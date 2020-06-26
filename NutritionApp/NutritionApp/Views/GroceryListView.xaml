@@ -30,12 +30,12 @@
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Row="0" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Grocery List"/>
-            <Button Grid.Row="1" Margin="30" >Print</Button>
-            <Button Grid.Row="2" Margin="30" >Do Somthing Else</Button>
+            <Button Grid.Row="1" Margin="30" Command="{Binding DeleteIngredientCommand}">Delete</Button>
+            <Button Grid.Row="2" Margin="30" >Print</Button>
 
         </Grid>
 
-        <ListBox Grid.Column="2" Grid.Row="1" Margin="5" ItemsSource="{Binding GroceryList}"/>
+        <ListBox Grid.Column="2" Grid.Row="1" Margin="5" ItemsSource="{Binding GroceryList}" SelectedItem="{Binding SelectedIngredient}"/>
 
     </Grid>
 </UserControl>

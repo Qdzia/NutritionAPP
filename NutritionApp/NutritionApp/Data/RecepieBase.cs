@@ -59,7 +59,7 @@ namespace NutritionApp.Data
             Recepies.Add(new Recepie("Marynowane Jajka", "Staranie stłuc i wlać", l2, new NutritionLabel(500, 2, 2, 234, 34, 6)));
             Recepies.Add(new Recepie("Majonezowa zapiekanka", "Polej kepuczem", l3, new NutritionLabel(2220, 21, 33, 44, 85, 61)));
         }
-
+        
         public void SaveRecepiesToFile()
         {
             string fileName = "RecipesBase.json";

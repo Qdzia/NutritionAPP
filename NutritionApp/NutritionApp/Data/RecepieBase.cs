@@ -7,10 +7,37 @@ using System.Threading.Tasks;
 
 namespace NutritionApp.Data
 {
-    public static class RecepieBase
+    public sealed class RecepieBase
     {
-        public static Recepie[][] PlanForWeek;
+        #region Singleton
+        private static readonly object padlock = new object();
+        private static RecepieBase _instance = null;
+        public static RecepieBase Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    lock (padlock)
+                    {
+                        if (_instance == null)
+                        {
+                            _instance = new RecepieBase();
+                        }
+                    }
+                }
+                return _instance;
+            }
+        }
 
+        #endregion
+
+        public Recepie[][] PlanForWeek { get; set; }
+
+        public RecepieBase()
+        {
+
+        }
 
     }
 }

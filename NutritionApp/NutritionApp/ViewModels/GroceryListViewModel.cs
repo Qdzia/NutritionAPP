@@ -1,4 +1,5 @@
 ﻿using NutritionApp.Base;
+using NutritionApp.Data;
 using NutritionApp.Models;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,10 @@ namespace NutritionApp.ViewModels
 {
     class GroceryListViewModel : BaseVM
     {
+        public Recepie[][] PlanForWeek;
+
+        List<string> inList;
+
         List<Ingredient> _groceryList;
         public List<Ingredient> GroceryList
         {
@@ -20,8 +25,49 @@ namespace NutritionApp.ViewModels
         public GroceryListViewModel()
         {
             _groceryList = new List<Ingredient>();
-            GroceryList.Add(new Ingredient("Marchew", 12, Ingredient.Unit.g));
-            GroceryList.Add(new Ingredient("Ogórek", 15, Ingredient.Unit.g));
+            inList = new List<string>();
+            PlanForWeek = RecepieBase.Instance.PlanForWeek;
+            SumItUp();
         }
+
+        public void SumItUp()
+        {
+            GroceryList = new List<Ingredient>();
+            inList = new List<string>();
+
+            for (int i = 0; i < 7; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    AddRecepieToGroceryList(PlanForWeek[i][j]);
+                }
+            }
+        }
+
+        void AddRecepieToGroceryList(Recepie rec)
+        {
+            if (rec == null) return;
+            
+            foreach (Ingredient ing in rec.ingredients)
+            {
+                if (!inList.Contains(ing.name))
+                {
+                    inList.Add(ing.name);
+                    GroceryList.Add(new Ingredient(ing.name, ing.count, ing.unit));
+                }
+                else
+                {
+                    for (int k = 0; k < GroceryList.Count; k++)
+                    {
+                        if (GroceryList[k].name == ing.name)
+                        {
+                            GroceryList[k].SumIngredient(ing);
+                            k = GroceryList.Count;
+                        }
+                    }
+                }
+            }
+        }
+        
     }
 }

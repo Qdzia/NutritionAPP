@@ -15,7 +15,7 @@ namespace NutritionApp.ViewModels
         //Display Recepie
         private string _recepieName;
         private string _recepieInstruction;
-        private List<string> _recepieIngredients;
+        private List<Ingredient> _recepieIngredients;
         private string _recepieLabel;
 
         //Create Week Plan 
@@ -44,7 +44,7 @@ namespace NutritionApp.ViewModels
             set { SetProperty(ref _recepieInstruction, value); }
         }
 
-        public List<string> RecepieIngredients
+        public List<Ingredient> RecepieIngredients
         {
             get { return _recepieIngredients; }
             set { SetProperty(ref _recepieIngredients, value); }
@@ -91,21 +91,13 @@ namespace NutritionApp.ViewModels
         #region Constructor
         public PlannerViewModel()
         {
-            PlanForWeek = new Recepie[7][];
-            for (int i = 0; i < PlanForWeek.Length; i++)
-            {
-                PlanForWeek[i] = new Recepie[3];
-            }
+            PlanForWeek = RecepieBase.Instance.PlanForWeek;
 
             ChangeMealCommand = new RelayCommand<string>(ChangeMeal);
             ChangeDayCommand = new RelayCommand<string>(ChangeDay);
 
-            _recepieList = new List<Recepie>();
-            //Will be chnage with load Recepie data base
-            _recepieList.Add(new Recepie("Kurczak w sosie", "Wlej Wode i gotowe", new List<string> { "Jajko", "Marchew", "Barszcz" }, new NutritionLabel(1, 2, 3, 4, 5, 6)));
-            _recepieList.Add(new Recepie("Marynowane Jajka", "Staranie stłuc i wlać", new List<string> { "Jajko", "Jajko", "Czarne Jajko" }, new NutritionLabel(500, 2, 2, 234, 34, 6)));
-            _recepieList.Add(new Recepie("Majonezowa zapiekanka", "Polej kepuczem", new List<string> { "Kepucz", "kanapka", "JSON" }, new NutritionLabel(2220, 21, 33, 44, 85, 61)));
-
+            _recepieList = RecepieBase.Instance.Recepies;
+            
             _selectedRecepie = _recepieList[1];
             ChangeDay("0");
         }

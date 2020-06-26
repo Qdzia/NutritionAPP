@@ -10,10 +10,10 @@ namespace NutritionApp.Models
     {
         public string recepieName;
         public string instruction;
-        public List<string> ingredients;
+        public List<Ingredient> ingredients;
         public NutritionLabel label;
 
-        public Recepie(string recepieName,string instruction, List<string> ingredients, NutritionLabel label)
+        public Recepie(string recepieName,string instruction, List<Ingredient> ingredients, NutritionLabel label)
         {
             this.recepieName = recepieName;
             this.instruction = instruction;

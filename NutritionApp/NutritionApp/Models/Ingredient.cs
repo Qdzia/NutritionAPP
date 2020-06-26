@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NutritionApp.Models
 {
-    class Ingredient
+    public class Ingredient
     {
         public int count;
         public string name;
@@ -31,7 +31,7 @@ namespace NutritionApp.Models
             return $"{count} {unit.ToString()} {name}";
         }
 
-        public void AddIngredient(Ingredient ing)
+        public void SumIngredient(Ingredient ing)
         {
             if (name == ing.name && unit == ing.unit)
             {

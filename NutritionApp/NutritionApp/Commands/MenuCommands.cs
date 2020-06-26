@@ -26,6 +26,11 @@ namespace NutritionApp.Commands
             MainViewModel mvm = param as MainViewModel;
             mvm.SelectedViewModel = new StatisticsViewModel();
         }
+        public static void GotoAddRecepie(object param)
+        {
+            MainViewModel mvm = param as MainViewModel;
+            mvm.SelectedViewModel = new AddRecepieViewModel();
+        }
         public static bool CanUpdateView(object param)
         {
             return true;
@@ -41,6 +46,10 @@ namespace NutritionApp.Commands
         public static RelayCommand<object> GotoStatisticsCommand
         {
             get { return new RelayCommand<object>(GotoStatistics); }
+        }
+        public static RelayCommand<object> GotoAddRecepieCommand
+        {
+            get { return new RelayCommand<object>(GotoAddRecepie); }
         }
     }
 }

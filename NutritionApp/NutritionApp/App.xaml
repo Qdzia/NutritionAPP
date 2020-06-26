@@ -15,5 +15,8 @@
         <DataTemplate DataType="{x:Type vm:StatisticsViewModel}">
             <vw:StatisticsView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AddRecepieViewModel}">
+            <vw:AddRecepieView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

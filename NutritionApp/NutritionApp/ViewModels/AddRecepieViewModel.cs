@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace NutritionApp.ViewModels
 {
-    class StatisticsViewModel: BaseVM
+    class AddRecepieViewModel : BaseVM
     {
-        public string Test { get { return "test Binding"; } }
+        public string Test { get { return "Testowanko"; } }
     }
 }

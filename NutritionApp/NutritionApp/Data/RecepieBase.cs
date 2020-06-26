@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace NutritionApp.Data
 {
-    public static class RecepieBase
+    public class RecepieBase
     {
-        public static Recepie[][] PlanForWeek;
+        public Recepie[][] PlanForWeek;
 
 
     }

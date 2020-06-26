@@ -62,6 +62,8 @@
     <Compile Include="Controls\NutritionFactLabel.xaml.cs">
       <DependentUpon>NutritionFactLabel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\RecepieBase.cs" />
+    <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\NutritionLabel.cs" />
     <Compile Include="Models\Recepie.cs" />
     <Compile Include="ViewModels\GroceryListViewModel.cs" />

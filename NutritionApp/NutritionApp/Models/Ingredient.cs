@@ -28,7 +28,15 @@ namespace NutritionApp.Models
 
         public override string ToString()
         {
-            return $"{name} {count} {unit.ToString()}";
+            return $"{count} {unit.ToString()} {name}";
+        }
+
+        public void AddIngredient(Ingredient ing)
+        {
+            if (name == ing.name && unit == ing.unit)
+            {
+                count += ing.count;
+            }
         }
     }
 }

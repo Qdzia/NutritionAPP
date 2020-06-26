@@ -1,4 +1,5 @@
 ﻿using NutritionApp.Base;
+using NutritionApp.Data;
 using NutritionApp.Models;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace NutritionApp.ViewModels
 
         //Create Week Plan 
         public RelayCommand<string> ChangeDayCommand { get; set; }
-        public Recepie[][] PlanForWeek;
+        public Recepie[][] PlanForWeek = RecepieBase.PlanForWeek;
         private Recepie _selectedRecepie;
         private List<Recepie> _recepieList;
         private int _curDay = 0;

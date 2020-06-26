@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace NutritionApp.Data
 {
@@ -37,8 +39,32 @@ namespace NutritionApp.Data
 
         public RecepieBase()
         {
-
+            Recepies = new List<Recepie>();
         }
 
+        public void SaveRecepiesToFile()
+        {
+            string fileName = "RecipesBase.json";
+            List<Recepie> recepiesToSave = new List<Recepie>();
+
+            foreach (var r in Recepies)
+            {
+                recepiesToSave.Add(r); 
+            }
+
+            string rawJson = JsonConvert.SerializeObject(recepiesToSave);
+            File.WriteAllText(fileName, rawJson);
+        }
+        
+        public void LoadRecepiesFromFile()
+        {
+            string filename = "RecipesBase.json";
+
+            if (!File.Exists(filename))
+                return;
+
+            Recepies = JsonConvert.DeserializeObject<List<Recepie>>(File.ReadAllText(filename));
+            
+        }
     }
 }

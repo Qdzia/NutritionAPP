@@ -33,6 +33,7 @@ namespace NutritionApp.Data
         #endregion
 
         public Recepie[][] PlanForWeek { get; set; }
+        public List<Recepie> Recepies { get; set; }
 
         public RecepieBase()
         {

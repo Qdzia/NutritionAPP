@@ -1,5 +1,4 @@
-﻿using NutritionApp.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,14 +16,13 @@ using System.Windows.Shapes;
 namespace NutritionApp.Views
 {
     /// <summary>
-    /// Interaction logic for GroceryListView.xaml
+    /// Interaction logic for AddRecepieView.xaml
     /// </summary>
-    public partial class GroceryListView : UserControl
+    public partial class AddRecepieView : UserControl
     {
-        public GroceryListView()
+        public AddRecepieView()
         {
             InitializeComponent();
-            this.DataContext = new GroceryListViewModel();
         }
     }
 }

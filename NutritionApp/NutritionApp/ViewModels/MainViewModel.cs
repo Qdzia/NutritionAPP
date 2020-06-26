@@ -19,7 +19,7 @@ namespace NutritionApp.ViewModels
         {
             _menuViewModel = new MenuViewModel();
 
-            _selectedViewModel = new GroceryListViewModel();
+            _selectedViewModel = new PlannerViewModel();
         }
 
         private BaseVM _selectedViewModel;

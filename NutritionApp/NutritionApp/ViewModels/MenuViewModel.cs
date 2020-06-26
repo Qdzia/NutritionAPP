@@ -23,7 +23,7 @@ namespace NutritionApp.ViewModels
             _mainMenu.Add(new MenuItemViewModel("Planner",MenuCommands.GotoPlannerCommand));
             _mainMenu.Add(new MenuItemViewModel("Calories",MenuCommands.GotoStatisticsCommand));
             _mainMenu.Add(new MenuItemViewModel("Grocery List",MenuCommands.GotoGroceryListCommand));
-            _mainMenu.Add(new MenuItemViewModel("Add Recepie"));
+            _mainMenu.Add(new MenuItemViewModel("Add Recepie",MenuCommands.GotoAddRecepieCommand));
         }
     }
 }

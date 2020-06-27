@@ -22,6 +22,7 @@ namespace NutritionApp.ViewModels
         public string Name { get { return NewRecepie.recepieName; } set { NewRecepie.recepieName = value; } }
         public string Instruction { get { return NewRecepie.instruction; } set { NewRecepie.instruction = value; } }
         public List<Ingredient> Ingredients { get { return NewRecepie.ingredients; } set { NewRecepie.ingredients = value; } }
+        //public List<Ingredient> Ingredients { get { return NewRecepie.ingredients; } set {SetProperty(ref NewRecepie.ingredients, value); } }
 
         #region NutritionLabel Binding
         public int Calories { get { return NewRecepie.label.calories; } set { NewRecepie.label.calories = value; } }
@@ -32,6 +33,14 @@ namespace NutritionApp.ViewModels
         public int Protein { get { return NewRecepie.label.protein; } set { NewRecepie.label.protein = value; } }
         #endregion
         public List<string> UnitList { get; set; }
+        private string _selectedUnit;
+        public string SelectedUnit
+        {
+            get { return _selectedUnit; }
+            set { SetProperty(ref _selectedUnit, value); }
+        }
+
+
         public int Count { get; set; }
         public string IngName { get; set; }
         public RelayCommand AddToList { get; set; }
@@ -51,7 +60,7 @@ namespace NutritionApp.ViewModels
             UnitList.Add("g");
             Count = 10;
             IngName = "Marchew";
-
+            Ingredients.Add(new Ingredient(IngName, 5, (Ingredient.Unit)Enum.Parse(typeof(Ingredient.Unit), "g")));
         }
 
         public bool CanAddRecepies(object param)
@@ -69,13 +78,12 @@ namespace NutritionApp.ViewModels
 
         public void AddIngredient()
         {
-            //Dodaj tutaj selected Unit i powinno działać
-            //Ingredients.Add(new Ingredient(IngName,Count,))
+            Ingredients.Add(new Ingredient(IngName, Count, (Ingredient.Unit)Enum.Parse(typeof(Ingredient.Unit), SelectedUnit))); 
         }
 
         public bool CanAddIngredient(object param)
         {
-            if (UnitList != null && Count != 0 && IngName != null)
+            if (Count != 0 && IngName != null)
                 return true;
             else
                 return false;

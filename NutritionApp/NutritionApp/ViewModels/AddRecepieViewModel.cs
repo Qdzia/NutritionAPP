@@ -35,36 +35,45 @@ namespace NutritionApp.ViewModels
         public int Count { get; set; }
         public string IngName { get; set; }
         public RelayCommand AddToList { get; set; }
+        public RelayCommand AddRecepiesToBase { get; set; }
 
 
         public AddRecepieViewModel()
         {
+            AddToList = new RelayCommand(AddIngredient, CanAddIngredient);
+            AddRecepiesToBase = new RelayCommand(AddRecepies, CanAddRecepies);
+
             PlanForWeek = RecepieBase.Instance.PlanForWeek;
             NewRecepie = new Recepie("Wpisz nazwe","Instrukcja tutaj",new List<Ingredient>(),new NutritionLabel(1,2,3,4,5,6));
             UnitList = new List<string>();
             UnitList.Add("kg");
+            UnitList.Add("dag");
             UnitList.Add("g");
             Count = 10;
             IngName = "Marchew";
 
         }
 
-        public bool CanAddRecepies()
+        public bool CanAddRecepies(object param)
         {
-            return true;
+            if (Name != null && Instruction != null && Ingredients != null)
+                return true;
+            else
+                return false;
         }
 
         public void AddRecepies()
         {
-
+            RecepieBase.Instance.Recepies.Add(NewRecepie);
         }
 
         public void AddIngredient()
         {
+            //Dodaj tutaj selected Unit i powinno działać
             //Ingredients.Add(new Ingredient(IngName,Count,))
         }
 
-        public bool CanAddIngredient()
+        public bool CanAddIngredient(object param)
         {
             if (UnitList != null && Count != 0 && IngName != null)
                 return true;

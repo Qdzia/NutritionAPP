@@ -40,6 +40,7 @@ namespace NutritionApp.ViewModels
             }
         }
 
+        //When u change view need command to update
         void UpdateLabelsOfWeek()
         {
             //Clear Labels 
@@ -52,6 +53,8 @@ namespace NutritionApp.ViewModels
                 List<NutritionLabel> labels = new List<NutritionLabel>();
                 for (int j = 0; j < planOfWeek[0].Length; j++)
                 {
+                    if (planOfWeek[i][j] == null)
+                        continue;
                     labels.Add(planOfWeek[i][j].label);
                 }
                 NutritionLabel n1 = new NutritionLabel();

@@ -36,8 +36,8 @@
             <Label Grid.Row="2" Content="Instruction" FontSize="15"/>
             <Label Grid.Row="6" Content="Calories, Fat, Carbs, Fiber, Sugar, Protein" FontSize="15"/>
 
-            <TextBox Grid.Row="1" Margin="5"/>
-            <TextBox Grid.Row="3" Margin="5"/>
+            <TextBox Grid.Row="1" Margin="5" Text="{Binding Name, Mode=TwoWay}"/>
+            <TextBox Grid.Row="3" Margin="5" Text="{Binding Instruction, Mode=TwoWay}"/>
 
             <!--Add Ingridient to list next to it-->
             <Grid Grid.Row="4" Grid.Column="1" >
@@ -50,10 +50,10 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Column="0" VerticalAlignment="Center" Content="Add Ingredient" FontSize="15"/>
-                <TextBox Grid.Column="1" Margin="5"/>
-                <ComboBox Grid.Column="2" Margin="5"/>
-                <TextBox Grid.Column="3" Margin="5"/>
-                <Button Grid.Column="4" VerticalContentAlignment="Center" Margin="5" FontSize="15" Content=">>" />
+                <TextBox Grid.Column="1" Margin="5" Text="{Binding Count, Mode=TwoWay}"/>
+                <ComboBox Grid.Column="2" Margin="5" ItemsSource="{Binding UnitList, Mode=TwoWay}"/>
+                <TextBox Grid.Column="3" Margin="5" Text="{Binding IngName, Mode=TwoWay}"/>
+                <Button Grid.Column="4" VerticalContentAlignment="Center" Margin="5" FontSize="15" Content=">>" Command="{Binding AddToList}" />
 
             </Grid>
             
@@ -70,13 +70,12 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Column="0" VerticalAlignment="Center" Content="Nutrition Facts" FontSize="15"/>
-                <TextBox Grid.Column="1" Margin="5"/>
-                <TextBox Grid.Column="2" Margin="5"/>
-                <TextBox Grid.Column="3" Margin="5"/>
-                <TextBox Grid.Column="4" Margin="5"/>
-                <TextBox Grid.Column="5" Margin="5"/>
-                <TextBox Grid.Column="5" Margin="5"/>
-                <TextBox Grid.Column="6" Margin="5"/>
+                <TextBox Grid.Column="1" Margin="5" Text="{Binding Calories, Mode=TwoWay}"/>
+                <TextBox Grid.Column="2" Margin="5" Text="{Binding Fat, Mode=TwoWay}"/>
+                <TextBox Grid.Column="3" Margin="5" Text="{Binding Carbs, Mode=TwoWay}"/>
+                <TextBox Grid.Column="4" Margin="5" Text="{Binding Fiber, Mode=TwoWay}"/>
+                <TextBox Grid.Column="5" Margin="5" Text="{Binding Sugar, Mode=TwoWay}"/>
+                <TextBox Grid.Column="6" Margin="5" Text="{Binding Protein, Mode=TwoWay}"/>
 
             </Grid>
         </Grid>
@@ -88,7 +87,7 @@
                 <RowDefinition Height="10*"/>
             </Grid.RowDefinitions>
 
-            <ListBox Grid.Row="1"/>
+            <ListBox Grid.Row="1" ItemsSource="{Binding Ingredients, Mode=TwoWay}"/>
             <Label Grid.Row="0" Content="Ingredients" FontSize="15"/>
             
         </Grid>

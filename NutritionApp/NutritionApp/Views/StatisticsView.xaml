@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:NutritionApp.Views"
              xmlns:controls="clr-namespace:NutritionApp.Controls"
              mc:Ignorable="d" Background="White"
+             DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentControl}}, Path=DataContext}"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -16,15 +17,27 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="5"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
             <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Test}" FontSize="50"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Total Amount" FontSize="50"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Each Day" FontSize="30"/>
+        <controls:NutritionFactLabel Grid.Column="1" Grid.Row="2" FactsLabel="{Binding TotalAmount}"/>
 
-        <controls:NutritionFactLabel Grid.Column="1" Grid.Row="2"/>
+        <Grid Grid.Row="4" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ListBox Grid.Column="1" Margin="10" FontSize="15" ItemsSource="{Binding DailyIncome}"/>
+
+        </Grid>
 
     </Grid>
 </UserControl>

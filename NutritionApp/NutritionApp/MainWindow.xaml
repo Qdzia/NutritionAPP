@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NutritionApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="DarkGray" WindowStyle="ToolWindow">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -21,19 +21,28 @@
             <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
 
-        <DockPanel Grid.Row="1" Grid.Column="1">
+        <DockPanel Grid.Row="1" Grid.Column="1" Background="DarkGray">
             <StackPanel Orientation="Vertical" >
-                <Menu DockPanel.Dock="Top"  ItemsSource="{Binding MainMenu}">
+                <Menu DockPanel.Dock="Top"  ItemsSource="{Binding MainMenu}" Background="DarkGray">
 
                     <Menu.ItemContainerStyle>
                         <Style TargetType="MenuItem">
 
                             <Setter Property="Width" Value="500"/>
                             <Setter Property="Padding" Value="5"/>
-                            <Setter Property="MenuItem.Header" Value="{Binding Path=Header}" />
-                            <Setter Property="MenuItem.ItemsSource" Value="{Binding Path=Children}" />
-                            <Setter Property="MenuItem.Command" Value="{Binding Path=Command}" />
-                            <Setter Property="MenuItem.CommandParameter" Value="{Binding Path=DataContext, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                            <Setter Property="Margin" Value="10, 10"/>
+                            <Setter Property="Background" Value="Gray"/>
+                            <Setter Property="Height" Value="50" />
+                            <Setter Property="FontSize" Value="17" />
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="BorderBrush" Value="Bisque"/>
+
+
+                            <Setter Property="Header" Value="{Binding Path=Header}" />
+                            <Setter Property="ItemsSource" Value="{Binding Path=Children}" />
+                            <Setter Property="Command" Value="{Binding Path=Command}" />
+                            <Setter Property="CommandParameter" Value="{Binding Path=DataContext, RelativeSource={RelativeSource AncestorType=Window}}"/>
                            
                         </Style>
                     </Menu.ItemContainerStyle>

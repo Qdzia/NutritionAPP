@@ -15,6 +15,11 @@ namespace NutritionApp.Models
         public int sugar;
         public int protein;
 
+        public NutritionLabel()
+        {
+
+        }
+
         public NutritionLabel(int calories, int fat, int carbs, int fiber, int sugar, int protein)
         {
             this.calories = calories;
@@ -24,6 +29,19 @@ namespace NutritionApp.Models
             this.sugar = sugar;
             this.protein = protein;
 
+        }
+
+        public void UpdateNurtions(List<NutritionLabel> nutritionLabels)
+        {
+            foreach (var nut in nutritionLabels)
+            {
+                this.calories += nut.calories;
+                this.fat += nut.fat;
+                this.carbs += nut.carbs;
+                this.fiber += nut.fiber;
+                this.sugar += nut.sugar;
+                this.protein += nut.protein;
+            }
         }
 
         public override string ToString()

@@ -26,6 +26,5 @@ namespace NutritionApp.Models
             return recepieName;
         }
 
-        private NutritionLabel 
     }
 }

@@ -24,5 +24,6 @@ namespace NutritionApp.Views
         {
             InitializeComponent();
         }
+
     }
 }

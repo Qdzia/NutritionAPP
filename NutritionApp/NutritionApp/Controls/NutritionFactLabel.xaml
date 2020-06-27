@@ -14,15 +14,16 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
 
-        <local:Counter Grid.Column="0" CounterName="Calories" Unit="Kcal" Number="1200"/>
-        <local:Counter Grid.Column="1" CounterName="Fat" Unit="gram" Number="33"/>
-        <local:Counter Grid.Column="2" CounterName="Carbs" Unit="gram" Number="12"/>
-        <local:Counter Grid.Column="3" CounterName="Fiber" Unit="gram" Number="34"/>
-        <local:Counter Grid.Column="4" CounterName="Sugar" Unit="gram" Number="65"/>
-        <local:Counter Grid.Column="5" CounterName="Protein" Unit="gram" Number="122"/>
+        <local:Counter x:Name="Calories" Grid.Column="0" CounterName="Calories" Unit="Kcal"/>
+        <local:Counter x:Name="Fat" Grid.Column="1" CounterName="Fat" Unit="gram" />
+        <local:Counter x:Name="Carbs" Grid.Column="2" CounterName="Carbs" Unit="gram" />
+        <local:Counter x:Name="Fiber" Grid.Column="3" CounterName="Fiber" Unit="gram" />
+        <local:Counter x:Name="Sugar" Grid.Column="4" CounterName="Sugar" Unit="gram" />
+        <local:Counter x:Name="Protein" Grid.Column="5" CounterName="Protein" Unit="gram"/>
 
 
 

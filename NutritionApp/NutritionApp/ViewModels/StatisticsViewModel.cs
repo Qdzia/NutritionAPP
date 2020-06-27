@@ -1,4 +1,5 @@
 ﻿using NutritionApp.Base;
+using NutritionApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,26 +12,30 @@ namespace NutritionApp.ViewModels
 {
     class StatisticsViewModel: BaseVM
     {
-        public string Test { get { return "test Binding"; } }
+        public List<string> DailyIncome { get; set; }
 
-        //public NutritionLabel Monday { get; set; }
-        //public NutritionLabel Tuesday { get; set; }
-        //public NutritionLabel Wednesfay { get; set; }
-        //public NutritionLabel Thursday { get; set; }
-        //public NutritionLabel Friday { get; set; }
-        //public NutritionLabel Saturday { get; set; }
-        //public NutritionLabel Sunday { get; set; }
+        List<string> Days;
+        List<NutritionLabel> LabelsOfWeek;
+        public NutritionLabel TotalAmount { get; set; }
 
-        public List<NutritionLabel> Days { get; set; }
-        
-        public void UpdateNurtion()
+        public StatisticsViewModel()
         {
-            for (int i = 0; i < RecepieBase.Instance.PlanForWeek.Length; i++)
-            {                
-                for (int j = 0; j < RecepieBase.Instance.PlanForWeek[0].Length; j++)
-                {
-                    
-                }
+            Days = new List<string>() { "Monday ", "Tuesday " };
+            LabelsOfWeek = new List<NutritionLabel>();
+
+            LabelsOfWeek.Add(new NutritionLabel(1,2,3,4,5,6));
+            LabelsOfWeek.Add(new NutritionLabel(6,5,4,3,2,1));
+
+            TotalAmount = new NutritionLabel(6, 5, 4, 3, 2, 1);
+            UpdateView();
+        }
+
+        void UpdateView()
+        {
+            DailyIncome = new List<string>();
+            for (int i = 0; i < Days.Count; i++)
+            {
+                DailyIncome.Add(Days[i] + LabelsOfWeek[i].ToString());
             }
         }
     }

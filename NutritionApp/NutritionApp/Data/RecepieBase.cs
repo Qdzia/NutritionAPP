@@ -48,7 +48,7 @@ namespace NutritionApp.Data
 
             LoadRecepiesFromFile();
         }
-
+        
         public void SaveRecepiesToFile()
         {
             string fileName = "RecipesBase.json";

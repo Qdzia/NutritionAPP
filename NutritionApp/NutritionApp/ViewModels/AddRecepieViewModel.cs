@@ -49,5 +49,27 @@ namespace NutritionApp.ViewModels
 
         }
 
+        public bool CanAddRecepies()
+        {
+            return true;
+        }
+
+        public void AddRecepies()
+        {
+
+        }
+
+        public void AddIngredient()
+        {
+            //Ingredients.Add(new Ingredient(IngName,Count,))
+        }
+
+        public bool CanAddIngredient()
+        {
+            if (UnitList != null && Count != 0 && IngName != null)
+                return true;
+            else
+                return false;
+        }
     }
 }

@@ -22,12 +22,8 @@ namespace NutritionApp.ViewModels
             Days = new List<string>() { "Monday ", "Tuesday " , "Wednesday ", "Thursday ", "Friday ", "Saturday ", "Sunday "};
             LabelsOfWeek = new List<NutritionLabel>();
 
-            LabelsOfWeek.Add(new NutritionLabel(1,2,3,4,5,6));
-            LabelsOfWeek.Add(new NutritionLabel(6,5,4,3,2,1));
 
-            TotalAmount = new NutritionLabel(6, 5, 4, 3, 2, 1);
-            UpdateLabelsOfWeek();
-            
+            UpdateLabelsOfWeek();     
             UpdateView();
         }
 
@@ -40,10 +36,8 @@ namespace NutritionApp.ViewModels
             }
         }
 
-        //When u change view need command to update
         void UpdateLabelsOfWeek()
         {
-            //Clear Labels 
             LabelsOfWeek.Clear();
 
             Recepie[][] planOfWeek = RecepieBase.Instance.PlanForWeek;

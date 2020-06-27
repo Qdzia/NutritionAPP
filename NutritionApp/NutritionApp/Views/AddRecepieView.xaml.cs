@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NutritionApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace NutritionApp.Views
         public AddRecepieView()
         {
             InitializeComponent();
+            this.DataContext = new AddRecepieViewModel();
         }
 
     }

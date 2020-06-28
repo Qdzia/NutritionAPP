@@ -67,7 +67,7 @@ namespace NutritionApp.Data
         {
             string filename = "RecipesBase.json";
 
-            if (!File.Exists(filename))
+            if (!File.Exists("../../" + filename))
                 File.WriteAllText("../../" + filename, String.Empty);
 
             string text = File.ReadAllText("../../" + filename);          

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NutritionApp.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="650" Background="White" 
+             d:DesignHeight="450" d:DesignWidth="650" Background="LightGray" 
              DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentControl}}, Path=DataContext}"
              x:Name="Root">
     <Grid>
@@ -70,7 +70,7 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
 
-                <ListBox Grid.Column="0" Margin="5" ItemsSource="{Binding RecepieList}" SelectedItem="{Binding SelectedRecepie}"/> 
+                <ListBox Grid.Column="0" Margin="5" Background="Beige" ItemsSource="{Binding RecepieList}" SelectedItem="{Binding SelectedRecepie}"/> 
 
                 <!--Recepie Panel-->
                 <Grid Grid.Row="0" Grid.Column="1" >
@@ -83,7 +83,7 @@
 
                     <TextBlock FontSize="30" Margin="5" Text="{Binding RecepieName}"/>
                     <TextBlock Grid.Row="1" Margin="5" Text="{Binding RecepieInstruction}"/>
-                    <ListBox Grid.Row="2" Margin="5" ItemsSource="{Binding RecepieIngredients}"/>
+                    <ListBox Grid.Row="2" Margin="5" Background="Beige" ItemsSource="{Binding RecepieIngredients}"/>
                     <TextBlock Grid.Row="3" Margin="5" Text="{Binding RecepieLabel}"/>
 
                 </Grid>

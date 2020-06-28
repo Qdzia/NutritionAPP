@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NutritionApp.Views"
              xmlns:controls="clr-namespace:NutritionApp.Controls"
-             mc:Ignorable="d" Background="White"
+             mc:Ignorable="d" Background="LightGray"
              DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentControl}}, Path=DataContext}"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -35,7 +35,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <ListBox Grid.Column="1" Margin="10" FontSize="15" ItemsSource="{Binding DailyIncome}"/>
+            <ListBox Grid.Column="1" Margin="10" Background="Beige" FontSize="15" ItemsSource="{Binding DailyIncome}"/>
 
         </Grid>
 

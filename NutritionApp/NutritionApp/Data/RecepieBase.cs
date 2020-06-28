@@ -46,6 +46,7 @@ namespace NutritionApp.Data
             }
             Recepies = new List<Recepie>();
 
+            
             LoadRecepiesFromFile();
         }
         
@@ -60,16 +61,21 @@ namespace NutritionApp.Data
             }
 
             string rawJson = JsonConvert.SerializeObject(recepiesToSave);
-            File.WriteAllText(fileName, rawJson);
+            File.WriteAllText("../../"+fileName, rawJson);
         }        
         public void LoadRecepiesFromFile()
         {
             string filename = "RecipesBase.json";
 
             if (!File.Exists(filename))
-                return;
+                File.WriteAllText("../../" + filename, String.Empty);
 
-            Recepies = JsonConvert.DeserializeObject<List<Recepie>>(File.ReadAllText(filename));
+            string text = File.ReadAllText("../../" + filename);          
+            Recepies = JsonConvert.DeserializeObject<List<Recepie>>(text);
+            if(Recepies.Count < 2)
+            {
+                //Add default recepies
+            }
             
         }
     }

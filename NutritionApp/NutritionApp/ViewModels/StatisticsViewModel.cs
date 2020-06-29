@@ -17,11 +17,20 @@ namespace NutritionApp.ViewModels
         List<NutritionLabel> LabelsOfWeek;
         public NutritionLabel TotalAmount { get; set; }
 
+        #region NutritionLabel Binding
+        public int Calories { get { return TotalAmount.calories; } set { TotalAmount.calories = value; } }
+        public int Fat { get { return TotalAmount.fat; } set { TotalAmount.fat = value; } }
+        public int Carbs { get { return TotalAmount.carbs; } set { TotalAmount.carbs = value; } }
+        public int Fiber { get { return TotalAmount.fiber; } set { TotalAmount.fiber = value; } }
+        public int Sugar { get { return TotalAmount.sugar; } set { TotalAmount.sugar = value; } }
+        public int Protein { get { return TotalAmount.protein; } set { TotalAmount.protein = value; } }
+        #endregion
+
         public StatisticsViewModel()
         {
-            Days = new List<string>() { "Monday ", "Tuesday " , "Wednesday ", "Thursday ", "Friday ", "Saturday ", "Sunday "};
+            Days = new List<string>() { "Monday   ", "Tuesday  " , "Wednesday", "Thursday ", "Friday   ", "Saturday ", "Sunday   "};
             LabelsOfWeek = new List<NutritionLabel>();
-
+            
 
             UpdateLabelsOfWeek();     
             UpdateView();
@@ -30,9 +39,10 @@ namespace NutritionApp.ViewModels
         void UpdateView()
         {
             DailyIncome = new List<string>();
+            DailyIncome.Add("| Calories |  Fat  | Carbs | Fiber | Sugar | Protein | Day");
             for (int i = 0; i < Days.Count; i++)
             {
-                DailyIncome.Add(Days[i] + LabelsOfWeek[i].ToString());
+                DailyIncome.Add(String.Format("{1} {0}", Days[i], LabelsOfWeek[i].StatisticView()));
             }
         }
 

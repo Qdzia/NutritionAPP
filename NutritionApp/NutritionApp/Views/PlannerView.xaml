@@ -70,10 +70,16 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
 
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="9*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Column="0" Grid.Row="1" Margin="5" Content="Delete Recepie" Command="{Binding DeleteRecepieCommand}"/>
                 <ListBox Grid.Column="0" Margin="5" Background="Beige" ItemsSource="{Binding RecepieList}" SelectedItem="{Binding SelectedRecepie}"/> 
 
                 <!--Recepie Panel-->
-                <Grid Grid.Row="0" Grid.Column="1" >
+                <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="2*"/>
                         <RowDefinition Height="6*"/>
@@ -81,7 +87,7 @@
                         <RowDefinition Height="3*"/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock FontSize="30" Margin="5" Text="{Binding RecepieName}"/>
+                    <TextBlock FontSize="25" Margin="5" Text="{Binding RecepieName}"/>
                     <TextBlock Grid.Row="1" Margin="5" Text="{Binding RecepieInstruction}"/>
                     <ListBox Grid.Row="2" Margin="5" Background="Beige" ItemsSource="{Binding RecepieIngredients}"/>
                     <TextBlock Grid.Row="3" Margin="5" Text="{Binding RecepieLabel}"/>

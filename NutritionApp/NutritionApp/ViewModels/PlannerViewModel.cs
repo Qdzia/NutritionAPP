@@ -20,6 +20,7 @@ namespace NutritionApp.ViewModels
 
         //Create Week Plan 
         public RelayCommand<string> ChangeDayCommand { get; set; }
+        public RelayCommand DeleteRecepieCommand { get; set; }
         public Recepie[][] PlanForWeek;
         private Recepie _selectedRecepie;
         private List<Recepie> _recepieList;
@@ -95,6 +96,7 @@ namespace NutritionApp.ViewModels
 
             ChangeMealCommand = new RelayCommand<string>(ChangeMeal);
             ChangeDayCommand = new RelayCommand<string>(ChangeDay);
+            DeleteRecepieCommand = new RelayCommand(DeleteRecepie);
 
             _recepieList = RecepieBase.Instance.Recepies;
             
@@ -139,6 +141,11 @@ namespace NutritionApp.ViewModels
 
             if (PlanForWeek[_curDay][2] != null) Supper = PlanForWeek[_curDay][2].recepieName;
             else Supper = "Supper";
+        }
+
+        void DeleteRecepie()
+        {
+            RecepieBase.Instance.Recepies.Remove(SelectedRecepie);
         }
         #endregion
     }

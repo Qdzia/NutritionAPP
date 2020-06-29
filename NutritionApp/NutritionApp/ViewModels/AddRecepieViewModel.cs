@@ -43,8 +43,10 @@ namespace NutritionApp.ViewModels
 
         public int Count { get; set; }
         public string IngName { get; set; }
+        public Ingredient SelectedIngredient { get; set; }
         public RelayCommand AddToList { get; set; }
         public RelayCommand AddRecepiesToBase { get; set; }
+        public RelayCommand DeleteIng { get; set; }
 
 
         public AddRecepieViewModel()
@@ -78,7 +80,8 @@ namespace NutritionApp.ViewModels
 
         public void AddIngredient()
         {
-            Ingredients.Add(new Ingredient(IngName, Count, (Ingredient.Unit)Enum.Parse(typeof(Ingredient.Unit), SelectedUnit))); 
+            Ingredients.Add(new Ingredient(IngName, Count, (Ingredient.Unit)Enum.Parse(typeof(Ingredient.Unit), SelectedUnit)));
+
         }
 
         public bool CanAddIngredient(object param)

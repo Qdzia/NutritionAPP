@@ -26,6 +26,5 @@ namespace NutritionApp.Views
             InitializeComponent();
             this.DataContext = new AddRecepieViewModel();
         }
-
     }
 }

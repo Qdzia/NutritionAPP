@@ -85,11 +85,21 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="10*"/>
+                <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
 
-            <ListBox Grid.Row="1" Background="Beige" ItemsSource="{Binding Ingredients, Mode=TwoWay}"/>
-            <Label Grid.Row="0" Content="Ingredients" FontSize="15"/>
-            
+            <ListBox Grid.Row="1" Background="Beige" ItemsSource="{Binding Ingredients, Mode=TwoWay}" SelectedItem="{Binding SelectedIngredient, Mode=TwoWay}"/>
+            <Button Grid.Row="2" VerticalContentAlignment="Center" Margin="10" FontSize="15" Content="Add Recepie > >" Command="{Binding AddRecepiesToBase }" />
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Content="Ingredients" FontSize="15"/>
+                <Button Grid.Column="2" VerticalContentAlignment="Center" Margin="5" FontSize="10" Content="X" Command="{Binding DeleteIng}" />
+
+            </Grid>
         </Grid>
         
 

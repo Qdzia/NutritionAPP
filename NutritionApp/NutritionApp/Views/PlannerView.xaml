@@ -76,7 +76,7 @@
                 </Grid.RowDefinitions>
 
                 <Button Grid.Column="0" Grid.Row="1" Margin="5" Content="Delete Recepie" Command="{Binding DeleteRecepieCommand}"/>
-                <ListBox Grid.Column="0" Margin="5" Background="Beige" ItemsSource="{Binding RecepieList}" SelectedItem="{Binding SelectedRecepie}"/> 
+                <ListBox Grid.Column="0" Margin="5" Background="Beige" ItemsSource="{Binding RecepieList, Mode=TwoWay}" SelectedItem="{Binding SelectedRecepie}"/> 
 
                 <!--Recepie Panel-->
                 <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" >

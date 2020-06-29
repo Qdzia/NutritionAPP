@@ -53,6 +53,7 @@ namespace NutritionApp.ViewModels
         {
             AddToList = new RelayCommand(AddIngredient, CanAddIngredient);
             AddRecepiesToBase = new RelayCommand(AddRecepies, CanAddRecepies);
+            DeleteIng = new RelayCommand(DeleteIngredient, CanDeleteIngredient);
 
             PlanForWeek = RecepieBase.Instance.PlanForWeek;
             NewRecepie = new Recepie("Wpisz nazwe","Instrukcja tutaj",new List<Ingredient>(),new NutritionLabel(1,2,3,4,5,6));
@@ -76,12 +77,12 @@ namespace NutritionApp.ViewModels
         public void AddRecepies()
         {
             RecepieBase.Instance.Recepies.Add(NewRecepie);
+            RecepieBase.Instance.SaveRecepiesToFile();
         }
 
         public void AddIngredient()
         {
             Ingredients.Add(new Ingredient(IngName, Count, (Ingredient.Unit)Enum.Parse(typeof(Ingredient.Unit), SelectedUnit)));
-
         }
 
         public bool CanAddIngredient(object param)
@@ -91,5 +92,18 @@ namespace NutritionApp.ViewModels
             else
                 return false;
         }
+
+        public bool CanDeleteIngredient(object param)
+        {
+            if (SelectedIngredient != null)
+                return true;
+
+            return false;
+        }
+        public void DeleteIngredient()
+        {
+            Ingredients.Remove(SelectedIngredient);
+        }
+
     }
 }

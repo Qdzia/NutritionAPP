@@ -100,7 +100,7 @@ namespace NutritionApp.ViewModels
 
             _recepieList = RecepieBase.Instance.Recepies;
             
-            _selectedRecepie = _recepieList[1];
+            //_selectedRecepie = _recepieList[1];
             ChangeDay("0");
         }
         #endregion
@@ -146,6 +146,7 @@ namespace NutritionApp.ViewModels
         void DeleteRecepie()
         {
             RecepieBase.Instance.Recepies.Remove(SelectedRecepie);
+            RecepieBase.Instance.SaveRecepiesToFile();
         }
         #endregion
     }

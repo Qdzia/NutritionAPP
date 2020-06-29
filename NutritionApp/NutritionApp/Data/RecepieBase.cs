@@ -73,10 +73,10 @@ namespace NutritionApp.Data
 
             string text = File.ReadAllText("../../" + filename);          
             Recepies = JsonConvert.DeserializeObject<ObservableCollection<Recepie>>(text);
-            if(Recepies.Count < 2)
-            {
-                //Add default recepies
-            }
+            //if(Recepies.Count < 2)
+            //{
+            //    //Add default recepies
+            //}
             
         }
     }

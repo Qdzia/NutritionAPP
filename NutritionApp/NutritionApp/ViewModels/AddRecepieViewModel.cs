@@ -23,7 +23,6 @@ namespace NutritionApp.ViewModels
         public string Name { get { return NewRecepie.recepieName; } set { NewRecepie.recepieName = value; } }
         public string Instruction { get { return NewRecepie.instruction; } set { NewRecepie.instruction = value; } }
         public ObservableCollection<Ingredient> Ingredients { get { return NewRecepie.ingredients; } set { NewRecepie.ingredients = value; } }
-        //public List<Ingredient> Ingredients { get { return NewRecepie.ingredients; } set {SetProperty(ref NewRecepie.ingredients, value); } }
 
         #region NutritionLabel Binding
         public int Calories { get { return NewRecepie.label.calories; } set { NewRecepie.label.calories = value; } }
@@ -65,7 +64,8 @@ namespace NutritionApp.ViewModels
 
         public bool CanAddRecepies(object param)
         {
-            if (Name != null && Instruction != null && Ingredients != null)
+            if (Name.Trim() != "" && Instruction.Trim() != "" && Ingredients.Count > 0 && 
+                (Calories != 0 || Fat != 0 || Carbs != 0 || Fiber != 0 || Sugar != 0 || Protein != 0))
                 return true;
             else
                 return false;
@@ -87,7 +87,7 @@ namespace NutritionApp.ViewModels
 
         public bool CanAddIngredient(object param)
         {
-            if (Count >=0 && IngName != null)
+            if (Count >=0 && IngName != null && SelectedUnit != null)
                 return true;
             else
                 return false;

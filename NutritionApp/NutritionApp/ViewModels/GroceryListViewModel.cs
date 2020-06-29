@@ -110,15 +110,57 @@ namespace NutritionApp.ViewModels
             saveFileDialog.ShowDialog();
             string fileName = saveFileDialog.FileName;
 
-            iTextSharp.text.Document oDoc = new iTextSharp.text.Document();
-            PdfWriter.GetInstance(oDoc, new FileStream(fileName, FileMode.Create));
-            oDoc.Open();
-            foreach (var item in GroceryList)
-            {
-                oDoc.Add(new Paragraph(item.ToString()));
+            iTextSharp.text.Document oDoc = new iTextSharp.text.Document(PageSize.A4 ,25 , 25, 30 ,30);
+
+            try {
+                PdfWriter.GetInstance(oDoc, new FileStream(fileName, FileMode.Create));
+
+                oDoc.Open();
+
+                //Meta data
+                oDoc.AddAuthor("Dariusz Momot & Łukasz Kudzia");
+                oDoc.AddCreator("NutritionApp");
+                oDoc.AddTitle("Grocery List");
+
+                //Fonts
+                Font titleFont = FontFactory.GetFont("Verdana", 8, Font.ITALIC);
+                titleFont.Color = BaseColor.DARK_GRAY;
+
+                Font cellFonnt = FontFactory.GetFont(FontFactory.COURIER, 12, BaseColor.DARK_GRAY);
+
+                //Title
+                Paragraph title = new Paragraph("Your grocery list from " + DateTime.Now, titleFont);
+                title.Alignment = Element.ALIGN_CENTER;
+                oDoc.Add(title);
+                oDoc.Add(new Paragraph("\n"));
+                oDoc.Add(new Paragraph("\n"));
+
+                //Table 
+                PdfPTable table = new PdfPTable(3);
+                foreach (var item in GroceryList)
+                {
+                    table.AddCell(item.count.ToString());
+                    table.AddCell(item.unit.ToString());
+                    table.AddCell(item.name);
+                }
+                table.HorizontalAlignment = Element.ALIGN_CENTER;
+                table.PaddingTop = 20f;
+                oDoc.Add(table);
+                oDoc.Add(new Paragraph("\n"));
+                oDoc.Add(new Paragraph("\n"));
+
+                Paragraph foter = new Paragraph("Create by NutritionApp", titleFont);
+                oDoc.Add(foter);
+                
             }
-            
-            oDoc.Close();
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Cannot save your list", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            finally
+            {
+                oDoc.Close();
+            }
         }
     }
 }

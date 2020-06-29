@@ -57,14 +57,10 @@ namespace NutritionApp.ViewModels
             DeleteIng = new RelayCommand(DeleteIngredient, CanDeleteIngredient);
 
             PlanForWeek = RecepieBase.Instance.PlanForWeek;
-            NewRecepie = new Recepie("Wpisz nazwe","Instrukcja tutaj",new ObservableCollection<Ingredient>(),new NutritionLabel(1,2,3,4,5,6));
-            UnitList = new List<string>();
-            UnitList.Add("kg");
-            UnitList.Add("dag");
-            UnitList.Add("g");
-            Count = 10;
-            IngName = "Marchew";
-            Ingredients.Add(new Ingredient(IngName, 5, (Ingredient.Unit)Enum.Parse(typeof(Ingredient.Unit), "g")));
+            NewRecepie = new Recepie("","",new ObservableCollection<Ingredient>(),new NutritionLabel(0,0,0,0,0,0));
+            UnitList = new List<string>() { "-","g","dag","kg","ml","tbsp","tsp"};
+            SelectedUnit = UnitList[0];
+            
         }
 
         public bool CanAddRecepies(object param)
@@ -83,12 +79,15 @@ namespace NutritionApp.ViewModels
 
         public void AddIngredient()
         {
-            Ingredients.Add(new Ingredient(IngName, Count, (Ingredient.Unit)Enum.Parse(typeof(Ingredient.Unit), SelectedUnit)));
+            if(SelectedUnit == "-") 
+                Ingredients.Add(new Ingredient(IngName, Count, Ingredient.Unit.none));
+            else
+                Ingredients.Add(new Ingredient(IngName, Count, (Ingredient.Unit)Enum.Parse(typeof(Ingredient.Unit), SelectedUnit)));
         }
 
         public bool CanAddIngredient(object param)
         {
-            if (Count != 0 && IngName != null)
+            if (Count >=0 && IngName != null)
                 return true;
             else
                 return false;

@@ -16,7 +16,11 @@ namespace NutritionApp.Models
         {
             g,
             dag,
-            kg
+            kg,
+            ml,
+            tbsp,
+            tsp,
+            none
         }
 
         public Ingredient(string name, int count, Unit unit)
@@ -28,7 +32,9 @@ namespace NutritionApp.Models
 
         public override string ToString()
         {
-            return $"{count} {unit.ToString()} {name}";
+            if (count == 0) return $"{name}";
+            if (unit==Unit.none) return $"{count} {name}";
+            else return $"{count} {unit.ToString()} {name}";
         }
 
         public void SumIngredient(Ingredient ing)

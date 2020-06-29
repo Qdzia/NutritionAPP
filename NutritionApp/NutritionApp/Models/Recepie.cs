@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,10 +11,10 @@ namespace NutritionApp.Models
     {
         public string recepieName;
         public string instruction;
-        public List<Ingredient> ingredients;
+        public ObservableCollection<Ingredient> ingredients;
         public NutritionLabel label;
 
-        public Recepie(string recepieName,string instruction, List<Ingredient> ingredients, NutritionLabel label)
+        public Recepie(string recepieName,string instruction, ObservableCollection<Ingredient> ingredients, NutritionLabel label)
         {
             this.recepieName = recepieName;
             this.instruction = instruction;

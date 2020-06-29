@@ -1,4 +1,5 @@
 ﻿using NutritionApp.Models;
+using System.Collections.ObjectModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +36,7 @@ namespace NutritionApp.Data
         #endregion
 
         public Recepie[][] PlanForWeek { get; set; }
-        public List<Recepie> Recepies { get; set; }
+        public ObservableCollection<Recepie> Recepies { get; set; }
 
         public RecepieBase()
         {
@@ -44,7 +45,7 @@ namespace NutritionApp.Data
             {
                 PlanForWeek[i] = new Recepie[3];
             }
-            Recepies = new List<Recepie>();
+            Recepies = new ObservableCollection<Recepie>();
 
             
             LoadRecepiesFromFile();
@@ -71,7 +72,7 @@ namespace NutritionApp.Data
                 File.WriteAllText("../../" + filename, String.Empty);
 
             string text = File.ReadAllText("../../" + filename);          
-            Recepies = JsonConvert.DeserializeObject<List<Recepie>>(text);
+            Recepies = JsonConvert.DeserializeObject<ObservableCollection<Recepie>>(text);
             if(Recepies.Count < 2)
             {
                 //Add default recepies

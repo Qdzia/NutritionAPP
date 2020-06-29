@@ -2,6 +2,7 @@
 using NutritionApp.Data;
 using NutritionApp.Models;
 using System;
+using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,7 @@ namespace NutritionApp.ViewModels
         public RelayCommand DeleteRecepieCommand { get; set; }
         public Recepie[][] PlanForWeek;
         private Recepie _selectedRecepie;
-        private List<Recepie> _recepieList;
+        private ObservableCollection<Recepie> _recepieList;
         private int _curDay = 0;
 
         //Manage Buttoms for Meals
@@ -45,10 +46,11 @@ namespace NutritionApp.ViewModels
             set { SetProperty(ref _recepieInstruction, value); }
         }
 
-        public List<Ingredient> RecepieIngredients
+        public ObservableCollection<Ingredient> RecepieIngredients
         {
-            get { return _recepieIngredients; }
-            set { SetProperty(ref _recepieIngredients, value); }
+            get; set;
+            //get { return _recepieIngredients; }
+            //set { SetProperty(ref _recepieIngredients, value); }
         }
 
         public string RecepieLabel
@@ -63,7 +65,7 @@ namespace NutritionApp.ViewModels
             set { SetProperty(ref _selectedRecepie, value); ChangeRecepie(value); }
         }
 
-        public List<Recepie> RecepieList
+        public ObservableCollection<Recepie> RecepieList
         {
             get { return _recepieList; }
             set { SetProperty(ref _recepieList, value); }
@@ -100,7 +102,6 @@ namespace NutritionApp.ViewModels
 
             _recepieList = RecepieBase.Instance.Recepies;
             
-            //_selectedRecepie = _recepieList[1];
             ChangeDay("0");
         }
         #endregion

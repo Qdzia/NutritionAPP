@@ -16,7 +16,7 @@ namespace NutritionApp.ViewModels
         //Display Recepie
         private string _recepieName;
         private string _recepieInstruction;
-        private List<Ingredient> _recepieIngredients;
+        private ObservableCollection<Ingredient> _recepieIngredients;
         private string _recepieLabel;
 
         //Create Week Plan 
@@ -48,9 +48,10 @@ namespace NutritionApp.ViewModels
 
         public ObservableCollection<Ingredient> RecepieIngredients
         {
-            get; set;
-            //get { return _recepieIngredients; }
-            //set { SetProperty(ref _recepieIngredients, value); }
+            
+            get { return _recepieIngredients; }
+            
+            set { SetProperty(ref _recepieIngredients, value); }
         }
 
         public string RecepieLabel
@@ -109,6 +110,8 @@ namespace NutritionApp.ViewModels
         #region Methods
         public void ChangeRecepie(Recepie rec)
         {
+            if (rec == null)
+                return;
             RecepieName = rec.recepieName;
             RecepieInstruction = rec.instruction;
             RecepieIngredients = rec.ingredients;
@@ -147,6 +150,7 @@ namespace NutritionApp.ViewModels
         void DeleteRecepie()
         {
             RecepieBase.Instance.Recepies.Remove(SelectedRecepie);
+            SelectedRecepie = null;
             RecepieBase.Instance.SaveRecepiesToFile();
         }
         #endregion

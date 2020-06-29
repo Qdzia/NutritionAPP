@@ -89,7 +89,8 @@
 
                     <TextBlock FontSize="25" Margin="5" Text="{Binding RecepieName}"/>
                     <TextBlock Grid.Row="1" Margin="5" Text="{Binding RecepieInstruction}"/>
-                    <ListBox Grid.Row="2" Margin="5" Background="Beige" ItemsSource="{Binding RecepieIngredients}"/>
+
+                    <ListBox Grid.Row="2" Margin="5" Background="Beige" ItemsSource="{Binding RecepieIngredients, Mode=TwoWay}"/>
                     <TextBlock Grid.Row="3" Margin="5" Text="{Binding RecepieLabel}"/>
 
                 </Grid>

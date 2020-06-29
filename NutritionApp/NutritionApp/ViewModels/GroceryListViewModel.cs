@@ -1,11 +1,16 @@
-﻿using NutritionApp.Base;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Microsoft.Win32;
+using NutritionApp.Base;
 using NutritionApp.Data;
 using NutritionApp.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace NutritionApp.ViewModels
 {
@@ -17,6 +22,7 @@ namespace NutritionApp.ViewModels
 
         public Recepie[][] PlanForWeek;
         public RelayCommand DeleteIngredientCommand { get; set; }
+        public RelayCommand PrintListToPDF { get; set; }
 
         public List<Ingredient> GroceryList
         {
@@ -37,6 +43,7 @@ namespace NutritionApp.ViewModels
             PlanForWeek = RecepieBase.Instance.PlanForWeek;
             SumItUp();
             DeleteIngredientCommand = new RelayCommand(DeleteIngredient);
+            PrintListToPDF = new RelayCommand(PrintPDF, CanPrintPDF);
         }
 
         public void DeleteIngredient()
@@ -89,5 +96,29 @@ namespace NutritionApp.ViewModels
             }
         }
         
+        public bool CanPrintPDF(object param)
+        {
+            if(GroceryList.Count == 0)
+            {
+                return false;
+            }
+            return true;
+        }
+        public void PrintPDF()
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "pdf|*.pdf" };
+            saveFileDialog.ShowDialog();
+            string fileName = saveFileDialog.FileName;
+
+            iTextSharp.text.Document oDoc = new iTextSharp.text.Document();
+            PdfWriter.GetInstance(oDoc, new FileStream(fileName, FileMode.Create));
+            oDoc.Open();
+            foreach (var item in GroceryList)
+            {
+                oDoc.Add(new Paragraph(item.ToString()));
+            }
+            
+            oDoc.Close();
+        }
     }
 }

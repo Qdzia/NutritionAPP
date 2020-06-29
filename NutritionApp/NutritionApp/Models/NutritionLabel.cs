@@ -48,5 +48,11 @@ namespace NutritionApp.Models
         {
             return $"Calories {calories}kcal Fat {fat}g Carbs {carbs}g Fiber {fiber}g Sugar {sugar}g Protein {protein}g";
         }
+
+        public string StatisticView()
+        { 
+            return $"{calories,5}kcal  {fat,5}g {carbs,5}g {fiber,5}g {sugar,5}g {protein,5}g ";
+
+        }
     }
 }

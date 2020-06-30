@@ -41,7 +41,7 @@ namespace NutritionApp.ViewModels
         }
 
 
-        public int Count { get; set; }
+        public double Count { get; set; }
         public string IngName { get; set; }
         public Ingredient SelectedIngredient { get; set; }
         public RelayCommand AddToList { get; set; }

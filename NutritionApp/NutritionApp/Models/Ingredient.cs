@@ -8,7 +8,7 @@ namespace NutritionApp.Models
 {
     public class Ingredient
     {
-        public int count;
+        public double count;
         public string name;
         public Unit unit;
 
@@ -23,7 +23,7 @@ namespace NutritionApp.Models
             none
         }
 
-        public Ingredient(string name, int count, Unit unit)
+        public Ingredient(string name, double count, Unit unit)
         {
             this.count = count;
             this.name = name;

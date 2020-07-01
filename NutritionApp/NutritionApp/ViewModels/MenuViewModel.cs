@@ -10,6 +10,8 @@ namespace NutritionApp.ViewModels
 {
     class MenuViewModel : BaseVM
     {
+        //Klasa menu Item zrobiona na wzór tej pokazanej na wykładach stosując ta samą logike i funkcjonalność
+
         private List<MenuItemViewModel> _mainMenu;
         public List<MenuItemViewModel> MainMenu
         {

@@ -11,6 +11,7 @@ namespace NutritionApp.Commands
 {
     class MenuCommands
     {
+        //Znajdują się tu komendy które przekierowują nas do poszczególnych view z użyciem Relay Command
         public static void GotoPlanner(object param)
         {
             MainViewModel mvm = param as MainViewModel;

@@ -12,6 +12,9 @@ namespace NutritionApp.ViewModels
 {
     class PlannerViewModel : BaseVM
     {
+        //Głownym zadaniem tej klasy jest zapełnienie tablicy PlanForWeek, Zapamiętuje nasze wybory i wysyła tablice do RecepieBase
+        //Daje też możliwość usunięcia przepisu
+
         #region Variables
         //Display Recepie
         private string _recepieName;

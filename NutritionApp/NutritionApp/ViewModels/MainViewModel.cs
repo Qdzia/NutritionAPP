@@ -10,6 +10,11 @@ namespace NutritionApp.ViewModels
 {
     class MainViewModel : BaseVM
     {
+
+        //W głównym oknie zajmujemy się jedynie zamianą View w zależności od wybranej opcji w menu 
+        //te zaś znajdują sie w oddzielnych klasach
+
+
         private MenuViewModel _menuViewModel;
         public List<MenuItemViewModel> MainMenu
         {

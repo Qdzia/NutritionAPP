@@ -9,6 +9,8 @@ using NutritionApp.Data;
 
 namespace NutritionApp.ViewModels
 {
+    //Klasa sumuje wszystkie Nutrition Label z PlanForWeek w ujęciu ogólnym na cały tydzień 
+    //i na każdy dzień z osobna wyświetlając je w formie tekstowe
     class StatisticsViewModel: BaseVM
     {
         public List<string> DailyIncome { get; set; }

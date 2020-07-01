@@ -16,6 +16,11 @@ namespace NutritionApp.ViewModels
 {
     class GroceryListViewModel : BaseVM
     {
+
+        //Głównym zadaniem tej klasy jest sumowanie składników i wydrukowanie PDF
+        //Sumujemu wszystkie składniki z PlanForWeek a następnie dodajemy te które sie powtażają każystajac z metody wbudowanej w Ingredient
+        //Warto zwórcić uwage na metode print w której budujemy naszego PDF precyzując po kolei Meta data, czcionki wygląd tabeli i inne 
+
         private Ingredient _selectedIngredient;
         private List<string> inList;
         private List<Ingredient> _groceryList;

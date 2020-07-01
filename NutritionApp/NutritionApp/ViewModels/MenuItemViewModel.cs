@@ -10,6 +10,7 @@ namespace NutritionApp.ViewModels
 {
     class MenuItemViewModel : BaseVM
     {
+        //Klasa menu Item zrobiona na wzór tej pokazanej na wykładach stosując ta samą logike i funkcjonalność
         #region Prywatne pola
 
         private List<MenuItemViewModel> _children;

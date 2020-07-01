@@ -12,6 +12,9 @@ namespace NutritionApp.Data
 {
     public sealed class RecepieBase
     {
+        //Klasa która głownie umożliwia dostęp innym klasą do jednej instanci PlanForWeek dzieki zastosoawaniu wzorca Singleton
+        //Zawiera ona odczyt i zapis z pliku w formacie JSON 
+
         #region Singleton
         private static readonly object padlock = new object();
         private static RecepieBase _instance = null;

@@ -12,6 +12,10 @@ namespace NutritionApp.ViewModels
 {
     class AddRecepieViewModel : BaseVM
     {
+        //Tutaj znajduje się prosty formularz sprawdzający dane nowych przepisów w celu ich dodanie
+        //Bindujemy kazde pole
+        // Poniżej znajduje się logika plikacji czyli utowrzenie obiektu recepie i dodaniu do na pliku
+        //Na uwage zasługuje też AddIngidient gdzie dodajemy składnik do listy 
         private Recepie _newRecepie;
 
         private Recepie[][] PlanForWeek;

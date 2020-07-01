@@ -40,9 +40,6 @@ namespace NutritionApp.Data
 
         public Recepie[][] PlanForWeek { get; set; }
         public ObservableCollection<Recepie> Recepies { get; set; }
-
-        ObservableCollection<Ingredient> l1;
-        Recepie rec;
         public RecepieBase()
         {
             PlanForWeek = new Recepie[7][];
@@ -52,7 +49,6 @@ namespace NutritionApp.Data
             }
             Recepies = new ObservableCollection<Recepie>();
 
-            l1 = new ObservableCollection<Ingredient>();
 
             LoadRecepiesFromFile();
         }

@@ -8,9 +8,9 @@ namespace NutritionApp.Models
 {
     public class Ingredient
     {
-        public double count;
-        public string name;
-        public Unit unit;
+        public double Count { get; set; }
+        public string Name { get; set; }
+        public Unit Units { get; set; }
 
         public enum Unit
         {
@@ -25,23 +25,23 @@ namespace NutritionApp.Models
 
         public Ingredient(string name, double count, Unit unit)
         {
-            this.count = count;
-            this.name = name;
-            this.unit = unit;
+            this.Count = count;
+            this.Name = name;
+            this.Units = unit;
         }
 
         public override string ToString()
         {
-            if (count == 0) return $"{name}";
-            if (unit==Unit.none) return $"{count} {name}";
-            else return $"{count} {unit.ToString()} {name}";
+            if (Count == 0) return $"{Name}";
+            if (Units==Unit.none) return $"{Count} {Name}";
+            else return $"{Count} {Units.ToString()} {Name}";
         }
 
         public void SumIngredient(Ingredient ing)
         {
-            if (name == ing.name && unit == ing.unit)
+            if (Name == ing.Name && Units == ing.Units)
             {
-                count += ing.count;
+                Count += ing.Count;
             }
         }
     }

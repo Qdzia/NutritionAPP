@@ -9,22 +9,22 @@ namespace NutritionApp.Models
 {
     public class Recepie
     {
-        public string recepieName;
-        public string instruction;
-        public ObservableCollection<Ingredient> ingredients;
-        public NutritionLabel label;
+        public string RecepieName { get; set; }
+        public string Instruction { get; set; }
+        public ObservableCollection<Ingredient> Ingredients { get; set; }
+        public NutritionLabel Label { get; set; }
 
         public Recepie(string recepieName,string instruction, ObservableCollection<Ingredient> ingredients, NutritionLabel label)
         {
-            this.recepieName = recepieName;
-            this.instruction = instruction;
-            this.ingredients = ingredients;
-            this.label = label;
+            this.RecepieName = recepieName;
+            this.Instruction = instruction;
+            this.Ingredients = ingredients;
+            this.Label = label;
         }
 
         public override string ToString()
         {
-            return recepieName;
+            return RecepieName;
         }
 
     }

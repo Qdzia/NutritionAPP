@@ -80,18 +80,18 @@ namespace NutritionApp.ViewModels
         {
             if (rec == null) return;
             
-            foreach (Ingredient ing in rec.ingredients)
+            foreach (Ingredient ing in rec.Ingredients)
             {
-                if (!inList.Contains(ing.name))
+                if (!inList.Contains(ing.Name))
                 {
-                    inList.Add(ing.name);
-                    GroceryList.Add(new Ingredient(ing.name, ing.count, ing.unit));
+                    inList.Add(ing.Name);
+                    GroceryList.Add(new Ingredient(ing.Name, ing.Count, ing.Units));
                 }
                 else
                 {
                     for (int k = 0; k < GroceryList.Count; k++)
                     {
-                        if (GroceryList[k].name == ing.name)
+                        if (GroceryList[k].Name == ing.Name)
                         {
                             GroceryList[k].SumIngredient(ing);
                             k = GroceryList.Count;
@@ -144,9 +144,9 @@ namespace NutritionApp.ViewModels
                 PdfPTable table = new PdfPTable(3);
                 foreach (var item in GroceryList)
                 {
-                    table.AddCell(item.count.ToString());
-                    table.AddCell(item.unit.ToString());
-                    table.AddCell(item.name);
+                    table.AddCell(item.Count.ToString());
+                    table.AddCell(item.Units.ToString());
+                    table.AddCell(item.Name);
                 }
                 table.HorizontalAlignment = Element.ALIGN_CENTER;
                 table.PaddingTop = 20f;

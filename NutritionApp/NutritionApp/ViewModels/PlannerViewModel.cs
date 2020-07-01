@@ -25,7 +25,7 @@ namespace NutritionApp.ViewModels
         //Create Week Plan 
         public RelayCommand<string> ChangeDayCommand { get; set; }
         public RelayCommand DeleteRecepieCommand { get; set; }
-        public Recepie[][] PlanForWeek;
+        public Recepie[][] PlanForWeek { get; set; }
         private Recepie _selectedRecepie;
         private ObservableCollection<Recepie> _recepieList;
         private int _curDay = 0;
@@ -115,10 +115,10 @@ namespace NutritionApp.ViewModels
         {
             if (rec == null)
                 return;
-            RecepieName = rec.recepieName;
-            RecepieInstruction = rec.instruction;
-            RecepieIngredients = rec.ingredients;
-            RecepieLabel = rec.label.ToString();
+            RecepieName = rec.RecepieName;
+            RecepieInstruction = rec.Instruction;
+            RecepieIngredients = rec.Ingredients;
+            RecepieLabel = rec.Label.ToString();
 
         }
 
@@ -126,7 +126,7 @@ namespace NutritionApp.ViewModels
         {
             if (SelectedRecepie == null) return;
             
-            string name = SelectedRecepie.recepieName;
+            string name = SelectedRecepie.RecepieName;
             int num = -1;
 
             if (choice == "Breakfast")  { Breakfast = name; num = 0; }
@@ -140,13 +140,13 @@ namespace NutritionApp.ViewModels
         {
             _curDay = Convert.ToInt32(day);
 
-            if (PlanForWeek[_curDay][0] != null) Breakfast = PlanForWeek[_curDay][0].recepieName;
+            if (PlanForWeek[_curDay][0] != null) Breakfast = PlanForWeek[_curDay][0].RecepieName;
             else Breakfast = "Breakfast";
 
-            if (PlanForWeek[_curDay][1] != null) Dinner = PlanForWeek[_curDay][1].recepieName;
+            if (PlanForWeek[_curDay][1] != null) Dinner = PlanForWeek[_curDay][1].RecepieName;
             else Dinner = "Dinner";
 
-            if (PlanForWeek[_curDay][2] != null) Supper = PlanForWeek[_curDay][2].recepieName;
+            if (PlanForWeek[_curDay][2] != null) Supper = PlanForWeek[_curDay][2].RecepieName;
             else Supper = "Supper";
         }
 

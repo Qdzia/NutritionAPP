@@ -8,12 +8,12 @@ namespace NutritionApp.Models
 {
     public class NutritionLabel
     {
-        public int calories;
-        public int fat;
-        public int carbs;
-        public int fiber;
-        public int sugar;
-        public int protein;
+        public int Calories { get; set; }
+        public int Fat { get; set; }
+        public int Carbs { get; set; }
+        public int Fiber { get; set; }
+        public int Sugar { get; set; }
+        public int Protein { get; set; }
 
         public NutritionLabel()
         {
@@ -22,12 +22,12 @@ namespace NutritionApp.Models
 
         public NutritionLabel(int calories, int fat, int carbs, int fiber, int sugar, int protein)
         {
-            this.calories = calories;
-            this.fat = fat;
-            this.carbs = carbs;
-            this.fiber = fiber;
-            this.sugar = sugar;
-            this.protein = protein;
+            this.Calories = calories;
+            this.Fat = fat;
+            this.Carbs = carbs;
+            this.Fiber = fiber;
+            this.Sugar = sugar;
+            this.Protein = protein;
 
         }
 
@@ -35,23 +35,23 @@ namespace NutritionApp.Models
         {
             foreach (var nut in nutritionLabels)
             {
-                this.calories += nut.calories;
-                this.fat += nut.fat;
-                this.carbs += nut.carbs;
-                this.fiber += nut.fiber;
-                this.sugar += nut.sugar;
-                this.protein += nut.protein;
+                this.Calories += nut.Calories;
+                this.Fat += nut.Fat;
+                this.Carbs += nut.Carbs;
+                this.Fiber += nut.Fiber;
+                this.Sugar += nut.Sugar;
+                this.Protein += nut.Protein;
             }
         }
 
         public override string ToString()
         {
-            return $"Calories {calories}kcal Fat {fat}g Carbs {carbs}g Fiber {fiber}g Sugar {sugar}g Protein {protein}g";
+            return $"Calories {Calories}kcal Fat {Fat}g Carbs {Carbs}g Fiber {Fiber}g Sugar {Sugar}g Protein {Protein}g";
         }
 
         public string StatisticView()
         { 
-            return $"{calories,5}kcal  {fat,5}g {carbs,5}g {fiber,5}g {sugar,5}g {protein,5}g ";
+            return $"{Calories,5}kcal  {Fat,5}g {Carbs,5}g {Fiber,5}g {Sugar,5}g {Protein,5}g ";
 
         }
     }

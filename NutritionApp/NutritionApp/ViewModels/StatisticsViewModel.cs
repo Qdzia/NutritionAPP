@@ -20,12 +20,12 @@ namespace NutritionApp.ViewModels
         public NutritionLabel TotalAmount { get; set; }
 
         #region NutritionLabel Binding
-        public int Calories { get { return TotalAmount.calories; } set { TotalAmount.calories = value; } }
-        public int Fat { get { return TotalAmount.fat; } set { TotalAmount.fat = value; } }
-        public int Carbs { get { return TotalAmount.carbs; } set { TotalAmount.carbs = value; } }
-        public int Fiber { get { return TotalAmount.fiber; } set { TotalAmount.fiber = value; } }
-        public int Sugar { get { return TotalAmount.sugar; } set { TotalAmount.sugar = value; } }
-        public int Protein { get { return TotalAmount.protein; } set { TotalAmount.protein = value; } }
+        public int Calories { get { return TotalAmount.Calories; } set { TotalAmount.Calories = value; } }
+        public int Fat { get { return TotalAmount.Fat; } set { TotalAmount.Fat = value; } }
+        public int Carbs { get { return TotalAmount.Carbs; } set { TotalAmount.Carbs = value; } }
+        public int Fiber { get { return TotalAmount.Fiber; } set { TotalAmount.Fiber = value; } }
+        public int Sugar { get { return TotalAmount.Sugar; } set { TotalAmount.Sugar = value; } }
+        public int Protein { get { return TotalAmount.Protein; } set { TotalAmount.Protein = value; } }
         #endregion
 
         public StatisticsViewModel()
@@ -61,7 +61,7 @@ namespace NutritionApp.ViewModels
                 {
                     if (planOfWeek[i][j] == null)
                         continue;
-                    labels.Add(planOfWeek[i][j].label);
+                    labels.Add(planOfWeek[i][j].Label);
                 }
                 NutritionLabel n1 = new NutritionLabel();
                 n1.UpdateNurtions(labels);

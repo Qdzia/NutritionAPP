@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace NutritionApp.ViewModels
 {
@@ -24,17 +25,17 @@ namespace NutritionApp.ViewModels
             get { return _newRecepie; }
             set { SetProperty(ref _newRecepie, value); }
         }
-        public string Name { get { return NewRecepie.recepieName; } set { NewRecepie.recepieName = value; } }
-        public string Instruction { get { return NewRecepie.instruction; } set { NewRecepie.instruction = value; } }
-        public ObservableCollection<Ingredient> Ingredients { get { return NewRecepie.ingredients; } set { NewRecepie.ingredients = value; } }
+        public string Name { get { return NewRecepie.RecepieName; } set { NewRecepie.RecepieName = value; } }
+        public string Instruction { get { return NewRecepie.Instruction; } set { NewRecepie.Instruction = value; } }
+        public ObservableCollection<Ingredient> Ingredients { get { return NewRecepie.Ingredients; } set { NewRecepie.Ingredients = value; } }
 
         #region NutritionLabel Binding
-        public int Calories { get { return NewRecepie.label.calories; } set { NewRecepie.label.calories = value; } }
-        public int Fat { get { return NewRecepie.label.fat; } set { NewRecepie.label.fat = value; } }
-        public int Carbs { get { return NewRecepie.label.carbs; } set { NewRecepie.label.carbs = value; } }
-        public int Fiber { get { return NewRecepie.label.fiber; } set { NewRecepie.label.fiber = value; } }
-        public int Sugar { get { return NewRecepie.label.sugar; } set { NewRecepie.label.sugar = value; } }
-        public int Protein { get { return NewRecepie.label.protein; } set { NewRecepie.label.protein = value; } }
+        public int Calories { get { return NewRecepie.Label.Calories; } set { NewRecepie.Label.Calories = value; } }
+        public int Fat { get { return NewRecepie.Label.Fat; } set { NewRecepie.Label.Fat = value; } }
+        public int Carbs { get { return NewRecepie.Label.Carbs; } set { NewRecepie.Label.Carbs = value; } }
+        public int Fiber { get { return NewRecepie.Label.Fiber; } set { NewRecepie.Label.Fiber = value; } }
+        public int Sugar { get { return NewRecepie.Label.Sugar; } set { NewRecepie.Label.Sugar = value; } }
+        public int Protein { get { return NewRecepie.Label.Protein; } set { NewRecepie.Label.Protein = value; } }
         #endregion
         public List<string> UnitList { get; set; }
         private string _selectedUnit;
@@ -108,6 +109,5 @@ namespace NutritionApp.ViewModels
         {
             Ingredients.Remove(SelectedIngredient);
         }
-
     }
 }
